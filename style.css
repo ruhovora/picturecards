@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+/*astericks is a universal selector which means it applies to everything*/
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Muli', sans-serif;
+    display: flex;
+    /* flexbox property that centers everything*/
+
+    align-items: center;
+    /*aligns center */
+    justify-content: center;
+    /*supposed to everything to center but only works with height property height: 100vh; */
+    height: 100vh;
+    /*view port height take the entire height of the browse, the viewport*/
+    overflow: hidden;
+    /*if you don't want the scroll bar to show by default*/
+    margin: 0;
+    /*Margin 0 get's rid of any spaces.*/
+}
+.message {
+    position: absolute;
+    right: 0.5vw;
+    top:1vw; 
+    max-width: 60vw;
+    font-size:15px;
+    font-family: "Open Sans", sans-serif; 
+    
+}
+.container {
+    display: flex; 
+    width:90vw;
+}
+.panel{
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 70vh;
+    border-radius: 50px; /*makes the images rounded*/
+    color:#fff; 
+    cursor:pointer; 
+    flex:1.5; /*all even for now*/ 
+    margin: 10px; /*spaces out the images*/
+    position:relative; /*positions the h3 container element absolute or relative*/
+    transition: all 1500ms ease-in  ; /*makes the transition when click active for the duration with an ease-in effect*/
+
+
+}
+.panel h3{
+    font-size: 24px;
+    position:absolute; /*This is the reason we made the panel relative, so we can make the headings absolute*/
+    bottom: 20px; 
+    left:  20px; 
+    margin: 0;
+    opacity: 0; /*we set the opacity to zero but it will show when it is active.*/
+}
+.panel.active {
+    flex:5; 
+}
+
+.panel.active h3 {
+    opacity: 5;
+    transition: opacity 1s ease-in 1s;
+}
+/*this effect shows 3 panel images instead of 4 when the screen is smaller*/
+/*the syle we put in here are only going to take effect if the screen is under 480px*/
+@media (max-width: 720px) {
+    .container {
+        width: 100vw;
+    }
+
+    .panel:nth-of-type(4),
+    .panel:nth-of-type(5) {
+        display: none; 
+    }
+}
+.footer-basic {
+    padding:inherit;
+    background-color: #ffffff;
+    color: #4b4c4d;
+    bottom: 0;
+    position:fixed;
+    width:60%;
+}
+
+.footer-basic ul {
+    padding: 0;
+    list-style: none;
+    text-align: center;
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 0;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.footer-basic li {
+    padding: 0 10px;
+}
+
+.footer-basic ul a {
+    color: inherit;
+    text-decoration: none;
+    opacity: 0.8;
+}
+
+.footer-basic ul a:hover {
+    opacity: 1;
+}
+
+.footer-basic .social {
+    text-align: center;
+    padding-bottom: 25px;
+}
+
+.footer-basic .social>a {
+    font-size: 14px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    display: inline-block;
+    text-align: center;
+    border-radius: 40%;
+    border: 1px solid #ccc;
+    margin: 0 8px;
+    color: inherit;
+    opacity: 0.75;
+}
+
+.footer-basic .social>a:hover {
+    opacity: 0.9;
+}
+
+.footer-basic .copyright {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 13px;
+    color: #aaa;
+    margin-bottom: 0;
+}
+
+input[type="checkbox"]
+{
+    -webkit-appearance: none;
+    visibility: hidden;
+    display: none; 
+}
+.check{
+    position: absolute; 
+    display: block;
+    width: 40px; 
+    height: 20px;
+    background: #b8c5cc; 
+    cursor: pointer; 
+    border-radius: 20px;
+    overflow: hidden;
+    transition: ease-in 0.5s;
+    right: 0.5vw;
+    top:3vw;
+    max-width: 60vw;
+}
+input[type="checkbox"]:checked ~ .check {
+    background: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    width: 100%;
+    height: 100%;
+    transition: ease-in 0.5s;
+}
+
